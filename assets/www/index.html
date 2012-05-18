@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@import "lib/openlayers/map.css";
+@import "css/index.css";
+</style>
+
+<script src="lib/phonegap/cordova-1.7.0.js" type="text/javascript"></script>
+<script src="lib/jquery/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="lib/openlayers/OpenLayers_clean.js" type="text/javascript"></script>
+<script src="OpenLayers_ext.js" type="text/javascript"></script>
+
+<script src="plugins/TileCache.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+var map;
+
+//$(document).ready(function() {
+document.addEventListener("deviceready", deviceReady, false);
+
+function deviceReady() {
+	/* var osmLayer = new OpenLayers.Layer.OSM("OpenStreetMap", null, {
+        transitionEffect: 'resize'
+    }); */
+    
+    var osmLayer = new OSMWithLocalStorage("OpenStreetMap", null, {
+    	transitionEffect: 'resize'
+    });
+
+	map = new OpenLayers.Map( "map", {
+		controls : [ new OpenLayers.Control.ZoomPanel(),
+			            new OpenLayers.Control.TouchNavigation({
+			                dragPanOptions: {
+			                    enableKinetic: true
+			                }
+			            }) ]	
+	});
+	
+	map.addLayer(osmLayer);
+	map.setCenter(new OpenLayers.LonLat(-77.7956, 38.7133).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));
+	//map.zoomTo(4);
+}
+</script>
+</head>
+<body>
+<div id="map"></div>
+</body>
+</html> 
