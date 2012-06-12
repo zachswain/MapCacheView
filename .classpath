@@ -5,6 +5,6 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="lib" path="lib/cordova-1.7.0.jar"/>
-	<classpathentry kind="lib" path="/mapsforge-0.2.4/dist/mapsforge-map-0.2.4.jar"/>
+	<classpathentry kind="lib" path="lib/mapsforge-map-0.2.4.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
